@@ -61,13 +61,11 @@ class SiteConfig
 
     public static function getPubkAndPrikPem()
     {
-        $res = openssl_pkey_new(array('private_key_bits' => 2048));
-        openssl_pkey_export($res, $priKey);
-        $pubKey = openssl_pkey_get_details($res);
+        $pair = ZalyRsa::newRsaKeyPair(2048);
 
         return [
-            self::SITE_ID_PUBK_PEM => trim($pubKey['key']),
-            self::SITE_ID_PRIK_PEM => trim($priKey)
+            self::SITE_ID_PUBK_PEM => $pair[ZalyRsa::$KeyPublicKey],
+            self::SITE_ID_PRIK_PEM => $pair[ZalyRsa::$KeyPrivateKey]
         ];
     }
 
