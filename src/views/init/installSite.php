@@ -19,36 +19,44 @@
         </div>
 
         <div class="initDiv " style="margin-top:2rem;" >
+
             <div class=" d-flex flex-row justify-content-between margin-top3 ext_open_ssl" isLoad="<?php echo $isLoadOpenssl;?>" >
-                1.是否安装open_ssl
+                1. PHP版本大于7.0.0 （后续版本会支持5.x.x）
+                <?php if($isPhpVersionValid){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
+"; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
+
+            </div>
+
+            <div class=" d-flex flex-row justify-content-between margin-top3 ext_open_ssl" isLoad="<?php echo $isLoadOpenssl;?>" >
+                2. 有效支持OpenSSL（某些Windows版本PHP集成的Openssl有Bug）
                    <?php if($isLoadOpenssl==1){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
 "; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
 
             </div>
 
             <div class=" d-flex flex-row justify-content-left margin-top3 ext_pdo_sqlite" isLoad="<?php echo $isLoadPDOSqlite;?>" >
-                2.是否安装pdo_sqlite
+                3. 是否安装PDO_Sqlite
                 <?php if($isLoadPDOSqlite==1){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
 "; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
 
             </div>
 
             <div class=" d-flex flex-row justify-content-left margin-top3 ext_curl"  isLoad="<?php echo $isLoadCurl;?>" >
-                3.是否安装curl
+                4. 是否安装Curl
                 <?php if($isLoadCurl==1){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
 "; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
 
             </div>
 
             <div class=" d-flex flex-row justify-content-left margin-top3 ext_is_write"  isLoad="<?php echo $isWritePermission;?>" >
-                3.当前目录是否有写权限
+                5. 当前目录写权限
                 <?php if($isWritePermission==1){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
 "; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
 
             </div>
 
             <div class="d-flex flex-row input_div justify-content-between margin-top3" >
-                4.请选择登录方式：<select id="verifyPluginId">
+                6. 请选择登录方式：<select id="verifyPluginId">
                     <option pluginId="105">本地账户密码校验</option>
                     <option pluginId="100">平台校验</option>
                 </select>
@@ -97,7 +105,7 @@
         };
         $.ajax({
             method: "POST",
-            url:"/index.php?action=installDB",
+            url:"./index.php?action=installDB",
             data: data,
             success:function (resp) {
                 console.log("init db sqlite " + resp);

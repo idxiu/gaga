@@ -845,7 +845,7 @@ function getMsgSizeForDiv(msg)
 }
 function getWebMsgHref(msgId, msgRoomType)
 {
-    var url = "/index.php?action=http.file.downloadWebMsg&msgId="+msgId+"&isGroupMsg="+(msgRoomType==GROUP_MSG ? 0 : 1);
+    var url = "./index.php?action=http.file.downloadWebMsg&msgId="+msgId+"&isGroupMsg="+(msgRoomType==GROUP_MSG ? 0 : 1);
     return url;
 }
 
@@ -985,7 +985,7 @@ function uploadMsgImgToServer(formData, src, type)
     var chatSessionType = localStorage.getItem(chatSessionId);
 
     $.ajax({
-        url:"/index.php?action=http.file.uploadWeb",
+        url:"./index.php?action=http.file.uploadWeb",
         type:"post",
         data:formData,
         contentType:false,

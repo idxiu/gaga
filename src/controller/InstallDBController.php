@@ -60,10 +60,11 @@ class InstallDBController
             }
         } elseif($method == "GET") {
             $params = [
-                "isLoadOpenssl" => extension_loaded("openssl"),
+                "isPhpVersionValid" => version_compare(PHP_VERSION, "7.0.0") >= 1,
+                "isLoadOpenssl" => extension_loaded("openssl") && false!=openssl_pkey_new(array("private_key_bits" => 2048)),
                 "isLoadPDOSqlite" => extension_loaded("pdo_sqlite"),
                 "isLoadCurl" => extension_loaded("curl"),
-                "isWritePermission" =>  is_writable(dirname(__FILE__)),
+                "isWritePermission" =>  is_writable( dirname(dirname(__FILE__)) ),
             ];
             echo $this->display("init_installSite", $params);
             return;

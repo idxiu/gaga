@@ -114,7 +114,7 @@ function handleReceivedImMessage(resp, callback)
             if(result.header[HeaderErrorCode] == ErrorSessionCode ) {
                 wsImObj.close();
                 localStorage.clear();
-                window.location.href = "/index.php?action=page.logout";
+                window.location.href = "./index.php?action=page.logout";
                 return;
             }
             alert(result.header[HeaderErrorInfo]);

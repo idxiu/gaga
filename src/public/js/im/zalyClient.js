@@ -107,7 +107,7 @@ function handleClientReceivedMessage(resp, callback)
         if(result.header[HeaderErrorCode] != "success") {
             if(result.header[HeaderErrorCode] == ErrorSessionCode ) {
                 localStorage.clear();
-                window.location.href = "/index.php?action=page.logout";
+                window.location.href = "./index.php?action=page.logout";
                 return ;
             }
             if(result.action == "api.friend.profile") {

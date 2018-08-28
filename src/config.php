@@ -6,7 +6,7 @@
   'loginPluginId' => '105',
   'apiPageWidget' => '/index.php?action=page.widget',
   'apiSiteLogin' => '/index.php?action=api.site.login&body_format=pb',
-  'session_verify_100' => 'http://192.144.153.21:5208/index.php?action=api.session.verify&body_format=pb',
+  'session_verify_100' => 'http://open.akaxin.com:5208/index.php?action=api.session.verify&body_format=pb',
   'session_verify_105' => 'http://127.0.0.1:5207/index.php?action=api.session.verify&body_format=pb',
   'initDB' => './index.php?action=installDB',
   'mail' => 

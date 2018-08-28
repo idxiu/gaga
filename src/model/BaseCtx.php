@@ -30,7 +30,6 @@
  * @property Message_News Message_News
  * @property Push_Client Push_Client
  * @property Gateway_Client Gateway_Client
- * @property ZalyBcmath ZalyBcmath
  * @property Wpf_Logger Wpf_Logger
  * @property ZalyCurl ZalyCurl
  * @property ZalyRsa ZalyRsa

@@ -1,12 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: zhangjun
- * Date: 24/08/2018
- * Time: 4:39 PM
+ * User: sssl
+ * Date: 2018/8/28
+ * Time: 11:42 AM
  */
 
-// 仅为了支持Google Proto的JSON解析，肯定都是int64
 if(!extension_loaded("bcmath")) {
     function bcadd($left_operand,  $right_operand, $scale = 0 )
     {

@@ -61,13 +61,9 @@ class SiteConfig
 
     public static function getPubkAndPrikPem()
     {
-        $res = openssl_pkey_new(array('private_key_bits' => 512));
+        $res = openssl_pkey_new(array('private_key_bits' => 2048));
         openssl_pkey_export($res, $priKey);
         $pubKey = openssl_pkey_get_details($res);
-
-        $logger = new Wpf_Logger();
-        $logger->info("---------------------", "pubKey = " . $pubKey['key']);
-        $logger->info("---------------------", "priKey = " . $priKey);
 
         return [
             self::SITE_ID_PUBK_PEM => trim($pubKey['key']),

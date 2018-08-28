@@ -5,6 +5,8 @@ ini_set("log_errors", "On");
 
 $_ENV['WPF_URL_PATH_SUFFIX'] = '/wpf';
 
+// mock
+require_once (__DIR__ . "/lib/mock.php");
 
 // adapt to duckchat-gagaphp.
 if (!empty($_GET['action'])) {
