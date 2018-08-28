@@ -59,12 +59,26 @@ class InstallDBController
                 return;
             }
         } elseif($method == "GET") {
+
+
+            $permissionDirectory = is_writable( dirname(dirname(__FILE__)) );
+            $configFile = dirname(dirname(__FILE__)) . "/config.php";
+            $attachDir = dirname(dirname(__FILE__)) . "/attachment";
+            if (file_exists($configFile) && !is_writable($configFile)) {
+                $permissionDirectory = false;
+            }
+
+            if (file_exists($attachDir) && !is_writable($attachDir)) {
+                $permissionDirectory = false;
+            }
+
+
             $params = [
                 "isPhpVersionValid" => version_compare(PHP_VERSION, "7.0.0") >= 1,
                 "isLoadOpenssl" => extension_loaded("openssl") && false!=openssl_pkey_new(array("private_key_bits" => 2048)),
                 "isLoadPDOSqlite" => extension_loaded("pdo_sqlite"),
                 "isLoadCurl" => extension_loaded("curl"),
-                "isWritePermission" =>  is_writable( dirname(dirname(__FILE__)) ),
+                "isWritePermission" =>  $permissionDirectory,
             ];
             echo $this->display("init_installSite", $params);
             return;

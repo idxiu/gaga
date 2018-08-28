@@ -49,7 +49,7 @@
             </div>
 
             <div class=" d-flex flex-row justify-content-left margin-top3 ext_is_write"  isLoad="<?php echo $isWritePermission;?>" >
-                5. 当前目录写权限
+                5. 当前目录（config.php、attachment）目录写权限
                 <?php if($isWritePermission==1){ echo " <img src='../../public/img/msg/member_select.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;'/>
 "; } else { echo "<img src='../../public/img/msg/btn-x.png' style='margin-left: 3rem;width: 1.5rem;height: 1.5rem;' />" ;}?>
 
